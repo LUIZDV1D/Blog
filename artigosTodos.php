@@ -28,9 +28,9 @@
 						echo "
 						<div class='col-md-12 thumbnail'>
 							<b><h3 class='text-center'>".$art['titulo']."</h3></b>
-							<i><p class='text-right'>".$art['data']."</p></i>
-							<h5 class='text-center'>".$art['conteudo']."</h5>
-							<i><h5 style='position: abolute;' class='text-left'>Autor: ".$art['autor']."</h5></i>
+							<i><b><p class='text-right'>Data: ".substr($art['data'], 0, 10)."</b></p></i>
+							<h5 class='text-justify'>".$art['conteudo']."</h5>
+							<b><i class='text-left'>Autor: ".$art['autor'].".</i></b>
 							<br><br><br><br><br>
 						</div>
 					";
