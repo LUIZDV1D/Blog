@@ -26,7 +26,7 @@
 
 				echo "<script type='text/javascript'>
 	 					alert('Cadastrado com sucesso!!');
-	 					location.href = 'index.php';
+	 					location.href = 'index.php?opc=home';
 	 				  </script>";
 			} else {
 				echo "<script type='text/javascript'>

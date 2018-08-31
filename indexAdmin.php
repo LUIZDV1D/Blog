@@ -68,7 +68,7 @@
 
 	<div style="margin-top: 150px;" class="container">
 		<nav class="navbar navbar-fixed-top" style="background: #00b8ff;">
-			<form method="get">
+			<form method="get" style="border: 1px solid black;">
 				<a href="?opc=home">
 					<img style=" position: abolute; width: 5%; margin-left: 60px; margin-top: 18px;" src="images/Blogger.png">
 				</a>

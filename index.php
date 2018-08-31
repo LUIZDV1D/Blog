@@ -6,6 +6,8 @@
 	<link rel="shortcut icon" type="x-icon" href="images/Blogger.png">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
 	<?php 
 
 
@@ -24,6 +26,10 @@
 				include('artigosTodos.php');
 			}
 
+			if ($opc == 'sobre') {
+				include('sobre.php');
+			}
+
 		}
 
 	 ?>
@@ -33,7 +39,7 @@
 
 	<div class="container-fluid">
 		<nav class="navbar navbar-fixed-top" style="background: #00b8ff;">
-			<form method="get">
+			<form method="get" style="border: 1px solid black;">
 				<a href="?opc=home">
 					<img style=" position: abolute; width: 5%; margin-left: 60px; margin-top: 18px;" src="images/Blogger.png">
 				</a>
@@ -49,6 +55,12 @@
 					<a style=" position: absolute; text-decoration: none; color: white; 
 					margin-top: -64px; margin-left: 1080px;" href="?opc=cada">
 						Cadastrar <i class="fas fa-plus"></i>
+					</a>
+				</h3>
+				<h3>
+					<a style=" position: absolute; text-decoration: none; color: white; 
+					margin-top: -64px; margin-left: 800px;" href="?opc=sobre">
+						Sobre <i class="fas fa-bars"></i>
 					</a>
 				</h3>
 			</form>

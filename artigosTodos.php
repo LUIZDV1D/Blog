@@ -28,8 +28,9 @@
 						echo "
 						<div class='col-md-12 thumbnail'>
 							<b><h3 class='text-center'>".$art['titulo']."</h3></b>
-							<i><h5 class='text-right'>".$art['data']."</h5></i>
-							<p>".$art['conteudo']."</p>
+							<i><p class='text-right'>".$art['data']."</p></i>
+							<h5 class='text-center'>".$art['conteudo']."</h5>
+							<i><h5 style='position: abolute;' class='text-left'>Autor: ".$art['autor']."</h5></i>
 							<br><br><br><br><br>
 						</div>
 					";

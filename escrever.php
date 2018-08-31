@@ -4,6 +4,7 @@
 	<title>Escrever</title>
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="shortcut icon" type="x-icon" href="images/cadicon.png">
 
 	<?php 
 
@@ -15,12 +16,12 @@
 
 		if (isset($_POST['titulo']) && isset($_POST['cont'])) {
 
-			$user = $_POST['titulo'];
+			$titulo = $_POST['titulo'];
 			$cont = $_POST['cont'];
 			$id = $_POST['id_a'];
 			
 
-			$sql_insere = "INSERT INTO artigos (titulo, conteudo, data, id_artigo_fk) VALUES ('$user', '$cont', NOW(), '$id')";
+			$sql_insere = "INSERT INTO artigos (titulo, conteudo, data, autor, id_artigo_fk) VALUES ('$titulo', '$cont', NOW(), '$user', '$id')";
 
 
 			$query = mysqli_query($conexao, $sql_insere);
