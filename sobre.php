@@ -1,6 +1,6 @@
 <div class="container-fluid">
 <h3 style="margin-top: 150px;">
-	Site, em grupo, criado referente à uma atividade da disciplina de IT (Inglês Técnico).
+	Site criado, em grupo, referente à uma atividade da disciplina de IT (Inglês Técnico).
 </h3>
 
 <style type="text/css">

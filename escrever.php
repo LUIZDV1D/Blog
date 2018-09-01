@@ -54,16 +54,16 @@
 	<div style="margin-top: 30px;" class="container">
 		<div class="row">
 		<div class="col-md-4"></div>
-		<div class="col-md-4">
+		<div class="col-md-12">
 		<form method="post" id="form">
 		  <fieldset>
 		  <div class="form-group">
-		   	<legend style=""><h2>Escrever artigo</h2></legend>
-		  	<label for="email" style="">Título do artigo</label>
+		   	<legend style="color: white;"><h2>Escrever artigo</h2></legend>
+		  	<label for="email" style="color: white;">Título do artigo</label>
 		    <input type="text" class="form-control" id="email" required name="titulo">
 		  </div>
 		  <div class="form-group">
-		    <label for="pwd" style="">Conteúdo</label>
+		    <label for="pwd" style="color: white;">Conteúdo</label>
 		    <textarea class="form-control" name="cont" rows="12" cols="48" placeholder="Escreva aqui..."></textarea>
 		  </div>
 
