@@ -32,7 +32,7 @@
 		$id_adm = $_GET['id_adm'];
 
 		if ($acao == 'apagar') {
-			if ($id_adm == '1' && $id_apaga != '1') {
+			if ($id_apaga != '1') {
 				
 			$sql = "DELETE FROM `users` WHERE id = '".$id_apaga."'";
 			$query = mysqli_query($conexao, $sql);
@@ -41,6 +41,9 @@
 
 				$sql_artigos = "DELETE FROM `artigos` WHERE id_artigo_fk = '".$id_apaga."'";
 				$query_artigos = mysqli_query($conexao, $sql_artigos);
+
+				$sql_co = "DELETE FROM `comentarios` WHERE id_coment = '".$id_apaga."'";
+				$query_co = mysqli_query($conexao, $sql_co);
 
 				echo "<script type='text/javascript'>
 	 					alert('Apagado com sucesso!!');

@@ -16,10 +16,6 @@
 
 		require('config.php');
 
-		$sql = "SELECT * FROM artigos WHERE id_artigo_fk = '".$id_usu."'";
-
-		$query = mysqli_query($conexao, $sql);
-
 	?>
 
 </head>
@@ -29,10 +25,11 @@
 
 		<div class="row">
 			<table class="table table-hover">
-  					<thead>	<h3>Artigos</h3>
+  					<thead>	<h3>Comentários</h3>
    						<tr>
       						<th scope="col">#</th>
-      						<th scope="col">Título</th>
+      						<th scope="col">Artigo</th>
+      						<th scope="col">Comentário</th>
       						<th scope="col">Data/Hora</th>
       						<th scope="col">Ações</th>
 						</tr>
@@ -46,23 +43,21 @@
 			$usuario = $_SESSION['user'];
 			$id_usu = $_SESSION['id_user'];
 
-			$sql = "SELECT * FROM artigos WHERE id_artigo_fk = '".$id_usu."'";
+			$sql = "SELECT * FROM comentarios WHERE id_coment = '".$_SESSION['id_art_coment']."'";
 
 			$query = mysqli_query($conexao, $sql);
 
 				if (mysqli_num_rows($query) > 0) {
 					while ($art = mysqli_fetch_assoc($query)) {
-
-						$_SESSION['id_art'] = $art['id'];
-						$_SESSION['id_art_coment'] = $art['id_artigo_fk'];
 						
 						echo "
 							<tr>
 								<th>".$art['id']."</th>
-								<td>".$art['titulo']."</td>
+								<td>".$art['artigo']."</td>
+								<td>".substr($art['comentario'], 0, 20)."</td>
 								<td>".$art['data']."</td>
 								<td>
-								<a style='color: green;' href='?opc=verArt&id_art=".$art['id']."'><i class='far fa-eye'></i></a>  |  <a style='color: blue;' href='?opc=altArt&id_art=".$art['id']."'><i class='far fa-edit'></i></a>  |  <a style='color: red;' href='?opc=apagar&id_art=".$art['id']."'><i class='far fa-trash-alt'></i></a>
+								<a style='color: green;' href='?opc=verComent&id_art=".$art['id']."'><i class='far fa-eye'></i></a>  |  <a style='color: red;' href='?opc=apagar_coment&id_com=".$art['id']."'><i class='far fa-trash-alt'></i></a> 
 								</td>	
 							</tr>
 						";
@@ -71,8 +66,7 @@
 					echo "
 						<tr>
 						<td><form method = 'get'>
-							<h3>Sem artigos!!</h3>
-							<b><p><a href='?opc=escrever'>Escreva algo!!</a></p></b>
+							<h3>Sem comentários!!</h3>
 						</form></td>
 						</tr>
 					";

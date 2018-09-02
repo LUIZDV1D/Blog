@@ -8,7 +8,11 @@
 
 	<?php 
 
-	session_start(); 	
+	session_start(); 
+
+	error_reporting(0);	
+
+	require('config.php');
 
 	$usuario = $_SESSION['user'];
 
@@ -47,7 +51,36 @@
 		if ($_GET['opc'] == 'apagar') {
 			include('apagar.php');			
 		}
+
+		if ($_GET['opc'] == 'coment') {
+			include('comentarios.php');			
+		}
+
+		if ($_GET['opc'] == 'verComent') {
+			include('verComent.php');			
+		}
+
+		if ($opc == 'apagar_coment') {
+
+			$sql_delC = "DELETE FROM comentarios WHERE id = '".$_GET['id_com']."'";
+			$query_delC = mysqli_query($conexao, $sql_delC);
+
+			if ($query_delC) {
+				
+				echo "<script type='text/javascript'>
+							alert('Apagado com sucesso!!');
+							location.href = 'indexLogado.php?opc=coment';
+						</script>";
+			} else {
+				echo "<script type='text/javascript'>
+							alert('Erro!!');
+							location.href = 'indexLogado.php?opc=coment';
+						</script>";
+			}
+		}
 	}
+		
+
 
 	 ?>
 
@@ -77,6 +110,9 @@
 					margin-top: -64px; margin-left: 1100px;" href="?opc=escrever">
 						Escrever
 					</a>
+				</h3>
+				<h3>
+					<a style="position: absolute; text-decoration: none; color: white; margin-top: -64px; margin-left: 900px;" href="?opc=coment">Comentários</a>
 				</h3>
 			</form>
 		</nav>

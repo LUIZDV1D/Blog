@@ -64,7 +64,7 @@
 
 					  <button type="submit" class="btn btn-primary form-control">Alterar</button>
 					  <br><br>
-		  			  <a class="btn btn-danger form-control" href="indexLogado.php">voltar</a>
+		  			  <a class="btn btn-danger form-control" href="indexLogado.php?opc=lista">voltar</a>
 					  </form>
 					  </fieldset>	
 				</div>					
