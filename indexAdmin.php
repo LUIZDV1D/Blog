@@ -29,9 +29,10 @@
 	if (isset($_GET['acao']) && isset($_GET['id'])) {
 		$acao = $_GET['acao'];
 		$id_apaga = $_GET['id'];
+		$id_adm = $_GET['id_adm'];
 
 		if ($acao == 'apagar') {
-			if ($id_apaga != '1') {
+			if ($id_adm == '1' && $id_apaga != '1') {
 				
 			$sql = "DELETE FROM `users` WHERE id = '".$id_apaga."'";
 			$query = mysqli_query($conexao, $sql);
@@ -106,7 +107,7 @@
   										<th>".$linhas['id']."</th>
   										<td>".$linhas['user']."</td>
   										<td>".$linhas['email']."</td>
-  										<td><a style='color: red;' href='?acao=apagar&id=".$linhas['id']."'><i class='far fa-trash-alt'></i></a></td>
+  										<td><a style='color: red;' href='?acao=apagar&id=".$linhas['id']."&id_adm=".$linhas['id_admin']."'><i class='far fa-trash-alt'></i></a></td>
   										</tr>	
   									";
   								}

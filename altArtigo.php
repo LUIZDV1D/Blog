@@ -11,7 +11,7 @@
 
 	require('config.php');
 
-		$id = $_SESSION['art_id'];
+		$id = $_GET['id_art'];
 
 	 ?>
 
@@ -37,7 +37,7 @@
 				if ($query_up) {
 					echo "<script type='text/javascript'>
 		 					alert('Alterado com sucesso!!');
-		 					location.href = 'indexLogado.php';
+		 					location.href = 'indexLogado.php?opc=lista';
 		 				  </script>";
 				} else {
 					echo "<script type='text/javascript'>

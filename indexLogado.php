@@ -8,7 +8,7 @@
 
 	<?php 
 
-	session_start();
+	session_start(); 	
 
 	$usuario = $_SESSION['user'];
 
@@ -27,9 +27,27 @@
 		if ($_GET['opc'] == 'escrever') {
 			header('location:escrever.php');
 		}
-	}
 
-	include('artigos.php');
+		if ($_GET['opc'] == 'lista') {
+			include('Artigos.php');
+		}
+
+		if ($_GET['opc'] == 'escrever') {
+			header('location:escrever.php');
+		}
+
+		if ($_GET['opc'] == 'verArt') {
+			include('verArtigo.php');
+		}
+
+		if ($_GET['opc'] == 'altArt') {
+			include('altArtigo.php');
+		}
+
+		if ($_GET['opc'] == 'apagar') {
+			include('apagar.php');			
+		}
+	}
 
 	 ?>
 
@@ -39,11 +57,11 @@
 	<div class="container-fluid">
 		<nav class="navbar navbar-fixed-top" style="background: #00b8ff;">
 			<form method="get" style="border: 1px solid black;">
-				<a href="?opc=home">
+				<a href="?opc=lista">
 					<img style=" position: abolute; width: 5%; margin-left: 60px; margin-top: 18px;" src="images/Blogger.png">
 				</a>
 				<h3 style=" position: absolute; color: white; 
-					margin-top: -44px; margin-left: 560px;">
+					margin-top: -44px; margin-left: 550px;">
 
 					Bem-vindo, <b><?php echo strtoupper("$usuario");?>.</b>
 

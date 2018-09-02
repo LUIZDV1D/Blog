@@ -7,6 +7,7 @@
 			require('config.php');
 
 			if (isset($_GET['id_art'])) {
+
 				$artigo = $_GET['id_art'];
 
 				echo "Artigo número: ". $artigo;
@@ -23,6 +24,7 @@
 		<?php 
 
 			$sql = "SELECT * FROM artigos WHERE id = '".$artigo."'";
+			
 			$query = mysqli_query($conexao, $sql);
 
 			if (mysqli_num_rows($query) > 0) {

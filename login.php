@@ -34,7 +34,7 @@
 
 				echo "<script type='text/javascript'>
 	 					alert('Logado com sucesso!!');
-	 					location.href = 'indexLogado.php';
+	 					location.href = 'indexLogado.php?opc=lista';
 	 				  </script>";
 
 			} else {

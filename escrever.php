@@ -30,7 +30,7 @@
 
 				echo "<script type='text/javascript'>
 	 					alert('Cadastrado com sucesso!!');
-	 					location.href = 'indexLogado.php';
+	 					location.href = 'indexLogado.php?opc=lista';
 	 				  </script>";
 			} else {
 				echo "<script type='text/javascript'>
@@ -83,7 +83,7 @@
 
 		  <button type="submit" class="btn btn-primary form-control">Concluir</button>
 		  <br><br>
-		  <a class="btn btn-danger form-control" href="indexLogado.php">voltar</a>
+		  <a class="btn btn-danger form-control" href="indexLogado.php?opc=lista">voltar</a>
 		  </form>
 		  </fieldset>
 	</div>

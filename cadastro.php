@@ -15,10 +15,9 @@
 			$pass = $_POST['pass'];
 			$email = $_POST['email'];
 
-			
+			if ($_POST['user'] != 'admin') {
 
-			$sql_insere = "INSERT INTO users (user, senha, email) VALUES ('$user', '$pass', '$email')";
-
+			$sql_insere = "INSERT INTO users (user, senha, email, id_admin) VALUES ('$user', '$pass', '$email', '0')";
 
 			$query = mysqli_query($conexao, $sql_insere);
 
@@ -30,9 +29,27 @@
 	 				  </script>";
 			} else {
 				echo "<script type='text/javascript'>
-	 					alert('Preencha o(s) campo(s)!!');
+	 					alert('Erro!!');
 	 				  </script>";
 			}
+		} elseif ($_POST['user'] == 'admin') {
+
+			$sql_insere = "INSERT INTO users (id, user, senha, email, id_admin) VALUES (1 ,'$user', '$pass', '$email', '1')";
+
+			$query = mysqli_query($conexao, $sql_insere);
+
+			if ($query) {
+
+				echo "<script type='text/javascript'>
+	 					alert('Admin cadastrado!!');
+	 					location.href = 'index.php?opc=home';
+	 				  </script>";
+			} else {
+				echo "<script type='text/javascript'>
+	 					alert('Erro!!');
+	 				  </script>";
+			}
+		}
 		}
 
 	 ?>

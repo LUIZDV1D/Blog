@@ -20,48 +20,6 @@
 
 		$query = mysqli_query($conexao, $sql);
 
-		if (isset($_GET['opc'])) {
-
-			if ($_GET['opc'] == 'escrever') {
-				header('location:escrever.php');
-			}
-
-		}
-
-		if (isset($_GET['opc_a'])) {
-			if ($_GET['opc_a'] == 'verArt') {
-				include('verArtigo.php');
-			}
-		}
-
-		if (isset($_GET['opc_b'])) {
-			if ($_GET['opc_b'] == 'altArt') {
-				header('location:altArtigo.php');
-			}
-		}
-
-		if (isset($_GET['acao']) && isset($_GET['id_art'])) {
-		$acao = $_GET['acao'];
-		$id_apaga = $_GET['id_art'];
-
-		if ($acao == 'apagar') {
-				
-			$sql_apaga = "DELETE FROM `artigos` WHERE id = '".$id_apaga."'";
-			$query_apaga = mysqli_query($conexao, $sql_apaga);
-
-			if ($query_apaga) {
-				echo "<script type='text/javascript'>
-	 					alert('Apagado com sucesso!!');
-	 					location.href = 'indexLogado.php';
-	 				  </script>";
-			} else {
-				echo "<script type='text/javascript'>
-	 					alert('Erro!!');
-	 				  </script>";
-			}
-		}
-	}
-
 	?>
 
 </head>
@@ -85,6 +43,13 @@
 				
 			<?php 
 
+			$usuario = $_SESSION['user'];
+			$id_usu = $_SESSION['id_user'];
+
+			$sql = "SELECT * FROM artigos WHERE id_artigo_fk = '".$id_usu."'";
+
+			$query = mysqli_query($conexao, $sql);
+
 				if (mysqli_num_rows($query) > 0) {
 					while ($art = mysqli_fetch_assoc($query)) {
 
@@ -95,7 +60,7 @@
 								<td>".$art['titulo']."</td>
 								<td>".$art['data']."</td>
 								<td>
-								<a style='color: green;' href='?opc_a=verArt&id_art=".$art['id']."'><i class='far fa-eye'></i></a>  |  <a style='color: blue;' href='?opc_b=altArt&id_art=".$art['id']."'><i class='far fa-edit'></i></a>  |  <a style='color: red;' href='?acao=apagar&id_art=".$art['id']."'><i class='far fa-trash-alt'></i></a>
+								<a style='color: green;' href='?opc=verArt&id_art=".$art['id']."'><i class='far fa-eye'></i></a>  |  <a style='color: blue;' href='?opc=altArt&id_art=".$art['id']."'><i class='far fa-edit'></i></a>  |  <a style='color: red;' href='?opc=apagar&id_art=".$art['id']."'><i class='far fa-trash-alt'></i></a>
 								</td>	
 							</tr>
 						";
@@ -115,6 +80,7 @@
 			 </tbody>
 			 </table>
 		</div>
-	</div>
+	</div>	
+	
 </body>
 </html>
